@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1326"/>
+      <stop offset="100%" stop-color="#1a2438"/>
+    </linearGradient>
+
+    <!-- Logo Gradient -->
+    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#0d9488"/>
+    </linearGradient>
+
+    <!-- WhatsApp Card Gradient -->
+    <linearGradient id="waGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#16a34a"/>
+    </linearGradient>
+
+    <!-- Glow Radial Gradients -->
+    <radialGradient id="glowEmerald" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowSky" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <style>
+    .font-sans { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', Roboto, sans-serif; }
+  </style>
+
+  <!-- Background Base -->
+  <rect width="1200" height="630" fill="url(#bgGrad)" />
+
+  <!-- Ambient Corner Glows -->
+  <circle cx="1100" cy="80" r="320" fill="url(#glowEmerald)" />
+  <circle cx="100" cy="550" r="300" fill="url(#glowSky)" />
+
+  <!-- Main Card Container -->
+  <rect x="48" y="48" width="1104" height="534" rx="24" fill="#ffffff" fill-opacity="0.04" stroke="#ffffff" stroke-opacity="0.12" stroke-width="1.5" />
+
+  <!-- Status Pill -->
+  <rect x="90" y="85" width="260" height="38" rx="19" fill="#10b981" fill-opacity="0.12" stroke="#10b981" stroke-opacity="0.4" stroke-width="1.5" />
+  <circle cx="112" cy="104" r="5" fill="#22c55e" />
+  <text x="128" y="109" class="font-sans" font-size="13" font-weight="700" fill="#a7f3d0" letter-spacing="0.5">Available for New Projects</text>
+
+  <!-- DP Monogram Logo -->
+  <rect x="90" y="150" width="92" height="92" rx="22" fill="url(#logoGrad)" />
+  <text x="136" y="213" text-anchor="middle" class="font-sans" font-size="42" font-weight="800" fill="#ffffff">DP</text>
+
+  <!-- Dhara Patel Name & Title -->
+  <text x="206" y="206" class="font-sans" font-size="54" font-weight="800" fill="#ffffff">Dhara Patel</text>
+  <text x="210" y="235" class="font-sans" font-size="14" font-weight="500" fill="#94a3b8" letter-spacing="0.5">Portfolio &amp; Official Services</text>
+
+  <!-- Roles Headline -->
+  <text x="90" y="292" class="font-sans" font-size="22" font-weight="700" fill="#34d399">Digital Marketer   |   Web Developer   |   Social Media Manager</text>
+
+  <!-- Description Lines -->
+  <text x="90" y="342" class="font-sans" font-size="16" font-weight="400" fill="#cbd5e1">Empowering businesses with high-converting marketing campaigns, clean responsive</text>
+  <text x="90" y="370" class="font-sans" font-size="16" font-weight="400" fill="#cbd5e1">web development, and engaging social media strategies.</text>
+
+  <!-- Stat Pill 1: 6+ Months -->
+  <g transform="translate(90, 428)">
+    <rect width="220" height="88" rx="16" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.12" stroke-width="1" />
+    <text x="24" y="42" class="font-sans" font-size="26" font-weight="800" fill="#ffffff">6+ Months</text>
+    <text x="24" y="68" class="font-sans" font-size="12" font-weight="500" fill="#94a3b8">Hands-on Experience</text>
+  </g>
+
+  <!-- Stat Pill 2: 3 Clients -->
+  <g transform="translate(330, 428)">
+    <rect width="220" height="88" rx="16" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.12" stroke-width="1" />
+    <text x="24" y="42" class="font-sans" font-size="26" font-weight="800" fill="#34d399">3 Clients</text>
+    <text x="24" y="68" class="font-sans" font-size="12" font-weight="500" fill="#94a3b8">Happy &amp; Satisfied</text>
+  </g>
+
+  <!-- WhatsApp CTA Box -->
+  <g transform="translate(570, 428)">
+    <rect width="540" height="88" rx="16" fill="#25D366" />
+    
+    <!-- White Circle with Phone/Chat -->
+    <circle cx="48" cy="44" r="24" fill="#ffffff" />
+    <path d="M40 36 C40 33.8 41.8 32 44 32 L52 32 C54.2 32 56 33.8 56 36 L56 46 C56 48.2 54.2 50 52 50 L48 50 L44 54 L44 50 C41.8 50 40 48.2 40 46 Z" fill="#25D366"/>
+    
+    <text x="88" y="34" class="font-sans" font-size="11" font-weight="800" fill="#ffffff" letter-spacing="1">CHAT ON WHATSAPP</text>
+    <text x="88" y="60" class="font-sans" font-size="23" font-weight="800" fill="#ffffff">+91 96019 07678</text>
+    <text x="88" y="78" class="font-sans" font-size="11" font-weight="500" fill="#ecfdf5">Instant Response  |  Available Now</text>
+  </g>
+</svg>
