@@ -1047,3 +1047,207 @@ button {
     transform: none !important;
   }
 }
+
+/* --------------------------------------------------------------------------
+   18. AEO & GEO Structured Components (Minimal & Clean)
+   -------------------------------------------------------------------------- */
+/* Freshness Badge */
+.freshness-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--muted);
+  background-color: var(--surface-subtle);
+  border: 1px solid var(--border);
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  margin-top: 1.25rem;
+}
+
+.freshness-badge svg {
+  color: var(--accent);
+}
+
+/* AI Summary / Executive Key Takeaway Card */
+.ai-summary-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--text);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.ai-summary-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.ai-summary-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+
+.ai-summary-text {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.ai-summary-bullets {
+  margin-top: 1rem;
+  padding-left: 1.25rem;
+  font-size: 0.92rem;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+/* Definition Callout Box */
+.definition-box {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  margin: 2rem 0;
+}
+
+.definition-term {
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* Comparison Table (Freelance Specialist vs Agency) */
+.comparison-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background-color: var(--surface);
+  margin-top: 2.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.92rem;
+  min-width: 580px;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.comparison-table th {
+  background-color: var(--surface-subtle);
+  font-weight: 700;
+  color: var(--text);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.comparison-table tr:last-child td {
+  border-bottom: none;
+}
+
+.comparison-table td:first-child {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.comparison-highlight {
+  background-color: rgba(37, 37, 37, 0.02);
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* FAQ Cards */
+.faq-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.faq-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  transition: border-color var(--transition);
+}
+
+.faq-card:hover {
+  border-color: var(--text);
+}
+
+.faq-question {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.65rem;
+  line-height: 1.35;
+}
+
+.faq-direct-answer {
+  font-size: 0.95rem;
+  color: var(--text);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.faq-detail {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+/* Stat & Citation Callout */
+.stat-citation {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 0.4rem;
+  font-style: italic;
+}
+
+.citation-link {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+}
+
+.citation-link:hover {
+  color: var(--accent);
+}
+
+.inline-link {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 600;
+}
+
+.inline-link:hover {
+  color: var(--accent);
+}
+
