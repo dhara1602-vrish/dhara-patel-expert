@@ -1,0 +1,818 @@
+/* ==========================================================================
+   Zukiswa Phiri — Minimal Editorial Portfolio Design System
+   Palette: Powder Blue Edition (#DCE8F0, #EDF4F8, #243746, #557C9B, #7899B3)
+   Typography: Space Grotesk, DM Sans, IBM Plex Mono
+   Aesthetic: Art-Directed Digital Magazine, Asymmetric Grids, Overlapping Labels
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Design Tokens & Root Variables
+   -------------------------------------------------------------------------- */
+:root {
+  /* Powder Blue Palette */
+  --bg-primary: #DCE8F0;          /* Primary Powder Blue */
+  --bg-secondary: #EDF4F8;        /* Soft Ice Blue */
+  --surface: #FFFFFF;             /* Crisp Paper White */
+  --surface-tint: #DCE8F0;        /* Badge Tint */
+  
+  --text-primary: #243746;        /* Deep Navy Charcoal (High Contrast) */
+  --text-secondary: #557C9B;      /* Slate Blue */
+  --text-muted: #7899B3;          /* Steel Blue Accent */
+  
+  --border-color: #243746;       /* Solid 1.5px Deep Navy Border */
+  --border-subtle: rgba(36, 55, 70, 0.2);
+  --border-width: 1.5px;
+
+  /* Typography */
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  /* Layout & Sizing */
+  --container-max: 1160px;
+  --container-padding: 2rem;
+
+  /* Transitions */
+  --transition-fast: 160ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 280ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & Baseline
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  background-color: var(--bg-primary);
+}
+
+body.editorial-body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  font-size: 1rem;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+/* Selection Color */
+::selection {
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+}
+
+/* Skip Link for Accessibility */
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 20px;
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  padding: 10px 18px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  z-index: 1000;
+  transition: top var(--transition-fast);
+}
+.skip-link:focus {
+  top: 20px;
+}
+
+/* --------------------------------------------------------------------------
+   3. Common Editorial Container & Typography Utilities
+   -------------------------------------------------------------------------- */
+.editorial-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  position: relative;
+}
+
+.editorial-section {
+  position: relative;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  overflow: visible;
+}
+
+.mono-meta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   4. Editorial Outlined Badges (Core Signature Aesthetic)
+   -------------------------------------------------------------------------- */
+.editorial-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-primary);
+  border: var(--border-width) solid var(--border-color);
+  padding: 10px 22px;
+  box-shadow: none;
+  border-radius: 0; /* Square edges matching print editorial */
+  user-select: none;
+  position: relative;
+  z-index: 20;
+  transition: transform var(--transition-smooth), background-color var(--transition-fast);
+}
+
+.editorial-badge:hover {
+  background-color: var(--surface);
+}
+
+/* --------------------------------------------------------------------------
+   5. SECTION 1: HERO / INTRODUCTION
+   -------------------------------------------------------------------------- */
+.section-hero {
+  background-color: var(--bg-primary);
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  padding-top: 5rem;
+  padding-bottom: 7rem;
+}
+
+.hero-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .hero-layout {
+    grid-template-columns: 55% 45%;
+    gap: 2rem;
+  }
+}
+
+/* Left Column */
+.hero-left-column {
+  position: relative;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-metadata {
+  margin-bottom: 4rem;
+}
+
+.hero-spacing-spacer {
+  height: 2rem;
+}
+
+/* Floating Badge ZUKISWA PHIRI */
+.hero-name-badge-wrap {
+  position: relative;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.hero-name-badge {
+  background-color: var(--bg-primary);
+  border: var(--border-width) solid var(--border-color);
+  padding: 16px 28px;
+  gap: 1rem;
+  transform: rotate(-9.5deg);
+  transform-origin: center left;
+  box-shadow: 2px 2px 0px rgba(36, 55, 70, 0.15);
+}
+
+@media (min-width: 900px) {
+  /* Intentional overlap over the portrait image on desktop */
+  .hero-name-badge {
+    margin-right: -45px;
+    padding: 18px 34px;
+  }
+}
+
+.badge-icon-smiley {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  flex-shrink: 0;
+}
+
+.badge-text-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* Hand-Drawn Curved Vector Arrow */
+.hero-arrow-container {
+  position: absolute;
+  left: 20px;
+  bottom: -55px;
+  width: 110px;
+  height: 55px;
+  pointer-events: none;
+  z-index: 18;
+}
+
+.hand-drawn-arrow {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.arrow-path {
+  stroke-dasharray: 120;
+  stroke-dashoffset: 0;
+}
+
+/* Right Column: Hero Portrait Image */
+.hero-right-column {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 5;
+}
+
+.portrait-photo-frame {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  border: var(--border-width) solid var(--border-color);
+  background-color: var(--bg-secondary);
+}
+
+.image-inner-wrapper {
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 3 / 4;
+}
+
+.editorial-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+}
+
+.portrait-photo-frame:hover .editorial-img,
+.keyboard-photo-frame:hover .editorial-img {
+  transform: scale(1.025);
+  filter: grayscale(90%);
+}
+
+/* Secondary Outlined Floating Label: PHIRI */
+.hero-sub-badge-wrap {
+  position: absolute;
+  bottom: 24px;
+  right: -24px;
+  z-index: 25;
+}
+
+.hero-sub-badge {
+  background-color: var(--bg-secondary);
+  border: var(--border-width) solid var(--border-color);
+  padding: 10px 22px;
+  box-shadow: 2px 2px 0px rgba(36, 55, 70, 0.15);
+}
+
+.badge-text-sub {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   6. SECTION 2: MY WORK / ABOUT ME
+   -------------------------------------------------------------------------- */
+.section-work {
+  background-color: var(--bg-secondary);
+  border-top: var(--border-width) solid var(--border-color);
+  border-bottom: var(--border-width) solid var(--border-color);
+  padding-top: 6.5rem;
+  padding-bottom: 6.5rem;
+}
+
+.work-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
+  align-items: flex-start;
+}
+
+@media (min-width: 900px) {
+  .work-layout {
+    grid-template-columns: 48% 52%;
+    gap: 4rem;
+  }
+}
+
+/* Left Column: Keyboard Hands Photo */
+.work-left-column {
+  position: relative;
+}
+
+.keyboard-photo-frame {
+  border: var(--border-width) solid var(--border-color);
+  background-color: var(--bg-primary);
+  width: 100%;
+}
+
+.keyboard-photo-frame .image-inner-wrapper {
+  aspect-ratio: 4 / 3;
+}
+
+/* Right Column: Bio & Projects */
+.work-right-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.work-badge-wrap {
+  margin-bottom: 2rem;
+}
+
+.work-badge {
+  background-color: var(--bg-primary);
+  padding: 12px 26px;
+  gap: 0.75rem;
+}
+
+.badge-text-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 1.85rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.badge-icon-smiley-sm {
+  display: flex;
+  align-items: center;
+  color: var(--text-primary);
+}
+
+/* Bio Text */
+.work-bio-block {
+  margin-bottom: 2.75rem;
+  max-width: 520px;
+}
+
+.editorial-bio-text {
+  font-family: var(--font-body);
+  font-size: 1.08rem;
+  line-height: 1.68;
+  color: var(--text-primary);
+  font-weight: 400;
+}
+
+/* Projects Information Blocks (Unboxed Editorial List) */
+.work-projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.project-info-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.project-info-block:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.project-asterisk-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  margin-top: 2px;
+  flex-shrink: 0;
+  transition: transform 0.5s ease;
+}
+
+.project-info-block:hover .project-asterisk-icon {
+  transform: rotate(90deg);
+}
+
+.project-info-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.project-heading-meta-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.project-info-heading {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.project-date-meta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--text-secondary);
+}
+
+.project-info-desc {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   7. SECTION 3: SERVICES I OFFER
+   -------------------------------------------------------------------------- */
+.section-services {
+  background-color: var(--bg-primary);
+  padding-top: 6.5rem;
+  padding-bottom: 7rem;
+}
+
+.services-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Top Centered Title Badge */
+.services-header-wrap {
+  margin-bottom: 4.5rem;
+}
+
+.services-title-badge {
+  background-color: var(--bg-secondary);
+  border: var(--border-width) solid var(--border-color);
+  padding: 14px 34px;
+}
+
+.services-main-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  letter-spacing: 0.02em;
+  margin: 0;
+  display: flex;
+  gap: 0.65rem;
+}
+
+.title-bold {
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.title-light {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* 2x2 Services Grid */
+.services-editorial-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 3.5rem;
+  column-gap: 4rem;
+  width: 100%;
+  max-width: 980px;
+}
+
+@media (min-width: 768px) {
+  .services-editorial-grid {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 4.5rem;
+    column-gap: 5rem;
+  }
+}
+
+.service-index-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 0.5rem 0;
+  transition: transform var(--transition-smooth);
+}
+
+.service-index-item:hover {
+  transform: translateX(4px);
+}
+
+.service-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.service-index-item:hover .service-icon-wrap {
+  transform: translateY(-2px);
+}
+
+.service-content-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.service-item-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.service-item-desc {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   8. SECTION 4: CONNECT WITH ME / CONTACT
+   -------------------------------------------------------------------------- */
+.section-contact {
+  background-color: var(--bg-secondary);
+  border-top: var(--border-width) solid var(--border-color);
+  padding-top: 6.5rem;
+  padding-bottom: 3rem;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+@media (min-width: 900px) {
+  .contact-layout {
+    grid-template-columns: 45% 55%;
+    gap: 3rem;
+  }
+}
+
+/* Left Column: Portrait */
+.contact-left-column {
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.contact-photo-frame {
+  max-width: 440px;
+  width: 100%;
+}
+
+/* Right Column: Contact Details */
+.contact-right-column {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+}
+
+@media (min-width: 900px) {
+  .contact-right-column {
+    padding-left: 2rem;
+  }
+}
+
+/* Floating Badge: CONNECT WITH ME */
+.contact-badge-wrap {
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 15;
+}
+
+.contact-badge {
+  background-color: var(--bg-primary);
+  border: var(--border-width) solid var(--border-color);
+  padding: 16px 32px;
+  transform: rotate(-4.5deg);
+  transform-origin: center left;
+  box-shadow: 2px 2px 0px rgba(36, 55, 70, 0.15);
+}
+
+@media (min-width: 900px) {
+  .contact-badge {
+    margin-left: -55px; /* Overlap across the left portrait */
+  }
+}
+
+.badge-text-contact {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3.2vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* Contact List Rows */
+.contact-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 460px;
+}
+
+.contact-detail-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.contact-detail-row:last-child {
+  border-bottom: none;
+}
+
+.contact-meta-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+.contact-link {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  display: inline-block;
+  position: relative;
+  width: fit-content;
+}
+
+.contact-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--text-primary);
+  transition: width var(--transition-smooth);
+}
+
+.contact-link:hover::after {
+  width: 100%;
+}
+
+.contact-plain-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* Bottom Colophon */
+.editorial-colophon {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 2rem;
+  margin-top: 3rem;
+}
+
+.colophon-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+@media (min-width: 600px) {
+  .colophon-inner {
+    flex-direction: row;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   9. Responsive Adaptations
+   -------------------------------------------------------------------------- */
+@media (max-width: 899px) {
+  .hero-name-badge {
+    transform: rotate(-5deg);
+    margin-right: 0;
+  }
+  
+  .contact-badge {
+    transform: rotate(-3deg);
+    margin-left: 0;
+  }
+  
+  .hero-sub-badge-wrap {
+    right: 12px;
+    bottom: 12px;
+  }
+  
+  .portrait-photo-frame,
+  .keyboard-photo-frame {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .editorial-section {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+  
+  .hero-name-badge {
+    transform: rotate(0deg);
+    padding: 12px 18px;
+    width: 100%;
+  }
+
+  .contact-badge {
+    transform: rotate(0deg);
+    padding: 12px 18px;
+    width: 100%;
+  }
+
+  .hero-arrow-container {
+    display: none;
+  }
+
+  .services-editorial-grid {
+    row-gap: 2.5rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   10. Accessibility (Reduced Motion)
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
